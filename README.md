@@ -1,19 +1,25 @@
-# Hido (LiquidPrivacy)
-
-> A software-defined privacy screen built with Electron, TypeScript, and HTML5 Canvas that protects sensitive information from shoulder surfing through a dynamic, physics-driven privacy overlay.
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=blur&height=200&color=gradient&text=Hido&fontSize=90&fontAlignY=40&animation=fadeIn" />
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Active%20Development-blue" />
   <img src="https://img.shields.io/badge/License-MIT-green" />
   <img src="https://img.shields.io/badge/Electron-Latest-47848F" />
   <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6" />
-  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-black" />
+  <img src="https://img.shields.io/badge/Platform-Windows%20|%20macOS%20|%20Linux-black" />
 </p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=electron,ts,nodejs,html,css,vscode,git" />
+  <img src="https://skillicons.dev/icons?i=electron,typescript,nodejs,html,css,git,vscode" />
 </p>
 
+<h1 align="center">Hido (LiquidPrivacy)</h1>
+
+<p align="center">
+  A software-defined privacy screen powered by real-time physics simulation,
+  adaptive viewport masking, and hardware-aware interaction.
+</p>
 ---
 
 ## Overview
@@ -139,25 +145,4 @@ MIT License
 This format looks much closer to repositories from companies like [Vercel](https://vercel.com?utm_source=chatgpt.com), [Electron](https://www.electronjs.org?utm_source=chatgpt.com), and [Supabase](https://supabase.com?utm_source=chatgpt.com)—minimal, technical, and recruiter-friendly.
 
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=blur&height=200&color=gradient&text=Hido&fontSize=90&fontAlignY=40&animation=fadeIn" />
-</p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Active%20Development-blue" />
-  <img src="https://img.shields.io/badge/License-MIT-green" />
-  <img src="https://img.shields.io/badge/Electron-Latest-47848F" />
-  <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6" />
-  <img src="https://img.shields.io/badge/Platform-Windows%20|%20macOS%20|%20Linux-black" />
-</p>
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=electron,typescript,nodejs,html,css,git,vscode" />
-</p>
-
-<h1 align="center">Hido (LiquidPrivacy)</h1>
-
-<p align="center">
-  A software-defined privacy screen powered by real-time physics simulation,
-  adaptive viewport masking, and hardware-aware interaction.
-</p>
