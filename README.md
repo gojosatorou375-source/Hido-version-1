@@ -1,11 +1,25 @@
-That's a much cleaner GitHub README style. For a professional repository, I would remove all emojis and add:
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=blur&height=300&color=gradient&text=Hido&fontSize=90&fontAlignY=40&animation=fadeIn" />
+</p>
 
-1. Shields.io badges at the top
-2. Tech stack icons underneath
-3. Cleaner sections
-4. More concise descriptions
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active%20Development-blue" />
+  <img src="https://img.shields.io/badge/License-MIT-green" />
+  <img src="https://img.shields.io/badge/Electron-Latest-47848F" />
+  <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6" />
+  <img src="https://img.shields.io/badge/Platform-Windows%20|%20macOS%20|%20Linux-black" />
+</p>
 
-Example:
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=electron,typescript,nodejs,html,css,git,vscode" />
+</p>
+
+<h1 align="center">Hido (LiquidPrivacy)</h1>
+
+<p align="center">
+  A software-defined privacy screen powered by real-time physics simulation,
+  adaptive viewport masking, and hardware-aware interaction.
+</p>
 
 # Hido (LiquidPrivacy)
 
