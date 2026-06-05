@@ -1,0 +1,27 @@
+appId: com.liquidprivacy.desktop
+productName: LiquidPrivacy
+directories:
+  output: dist-pack
+files:
+  - dist/**/*
+  - assets/**/*
+  - package.json
+mac:
+  target:
+    - dmg
+  category: public.app-category.utilities
+win:
+  target:
+    - nsis
+  publisherName: LiquidPrivacy
+nsis:
+  oneClick: true
+  perMachine: false
+  allowToChangeInstallationDirectory: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+linux:
+  target:
+    - deb
+    - AppImage
+  category: Utility

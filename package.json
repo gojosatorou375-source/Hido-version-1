@@ -1,0 +1,29 @@
+{
+  "name": "liquidprivacy-desktop",
+  "version": "1.0.0",
+  "description": "Cross-platform desktop privacy screen app using Electron and TypeScript",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "concurrently \"tsc -w\" \"electron dist/main/main.js\"",
+    "pack": "tsc && electron-builder --dir",
+    "dist": "tsc && electron-builder",
+    "build:win": "tsc && electron-builder --win",
+    "build:mac": "tsc && electron-builder --mac",
+    "build:linux": "tsc && electron-builder --linux"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
+  "optionalDependencies": {
+    "node-imu": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "concurrently": "^8.0.0",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.4.0"
+  }
+}

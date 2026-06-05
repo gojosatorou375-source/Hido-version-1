@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hido Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0b0c10;
+      --panel-bg: rgba(26, 29, 38, 0.65);
+      --accent-color: #4f46e5;
+      --accent-hover: #6366f1;
+      --text-color: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      user-select: none;
+      overflow-y: auto;
+      /* Hide scrollbar */
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, and Opera */
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-title {
+      background: linear-gradient(135deg, #a5b4fc, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .section {
+      background: var(--panel-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    }
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #a5b4fc;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    label {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-color);
+    }
+    .value-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      background: var(--accent-hover);
+    }
+    select, input[type="text"] {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 12px;
+      border-radius: 6px;
+      outline: none;
+      font-size: 0.88rem;
+      font-family: inherit;
+    }
+    select:focus, input[type="text"]:focus {
+      border-color: var(--accent-color);
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .checkbox-container input {
+      display: none;
+    }
+    .checkmark {
+      width: 18px;
+      height: 18px;
+      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      display: inline-block;
+      position: relative;
+    }
+    .checkbox-container input:checked + .checkmark {
+      background: var(--accent-color);
+      border-color: var(--accent-hover);
+    }
+    .checkbox-container input:checked + .checkmark::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 2px;
+      width: 5px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    .preview-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    #preview-canvas {
+      width: 200px;
+      height: 120px;
+      background: #11131e;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      display: block;
+    }
+    .version-tag {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <img src="logo.png" alt="Hido Logo" style="width: 32px; height: 32px; object-fit: contain;">
+      <span class="brand-title">Hido</span>
+    </div>
+    <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">Settings</span>
+  </h1>
+
+  <div class="container">
+    <!-- Master Activation Control -->
+    <div class="section" style="border: 1px solid var(--accent-color); background: rgba(79, 70, 229, 0.08);">
+      <div class="form-row">
+        <span style="font-weight: 600; color: #a5b4fc; font-size: 1.05rem;">Privacy Screen Overlay</span>
+        <button id="toggleOverlayBtn" style="background: var(--accent-color); border: none; color: white; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background 0.2s;">
+          Enable Overlay
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Preview -->
+    <div class="section">
+      <div class="section-title">Live Preview</div>
+      <div class="preview-container">
+        <canvas id="preview-canvas" width="200" height="120"></canvas>
+      </div>
+    </div>
+
+    <!-- Liquid Behavior -->
+    <div class="section">
+      <div class="section-title">Liquid Behavior</div>
+      <div class="form-group">
+        <div class="form-row">
+          <label for="liquidDarkness">Liquid Darkness</label>
+          <span class="value-label" id="liquidDarkness-val">0.88</span>
+        </div>
+        <input type="range" id="liquidDarkness" min="0.60" max="0.97" step="0.01" value="0.88">
+      </div>
+
+      <div class="form-group">
+        <div class="form-row">
+          <label for="viewportSize">Clear Viewport Size</label>
+          <span class="value-label" id="viewportSize-val">0.52</span>
+        </div>
+        <input type="range" id="viewportSize" min="0.25" max="0.72" step="0.01" value="0.52">
+      </div>
+
+      <div class="form-group">
+        <div class="form-row">
+          <label for="viscosity">Viscosity (Damping)</label>
+          <span class="value-label" id="viscosity-val">0.72</span>
+        </div>
+        <input type="range" id="viscosity" min="0.40" max="0.95" step="0.01" value="0.72">
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+          <label for="waveIntensity">Wave Intensity</label>
+          <span class="value-label" id="waveIntensity-val">0.03</span>
+        </div>
+        <input type="range" id="waveIntensity" min="0.00" max="0.08" step="0.005" value="0.03">
+      </div>
+    </div>
+
+    <!-- Input settings -->
+    <div class="section">
+      <div class="section-title">Input Source</div>
+      <div class="form-row" style="margin-top: 6px; margin-bottom: 12px;">
+        <label>Enable Motion Tracking</label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="enableMotion" checked>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="form-group" id="sensorModeGroup">
+        <div class="form-row">
+          <label for="sensorMode">Motion Sensing Mode</label>
+          <select id="sensorMode">
+            <option value="auto">Auto (Sensor fallback to Mouse)</option>
+            <option value="tilt">Force Hardware Tilt Sensor</option>
+            <option value="mouse">Force Mouse Fallback</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy & Visual Modes -->
+    <div class="section">
+      <div class="section-title">Visual Modes</div>
+      <div class="form-row" style="margin-top: 6px; margin-bottom: 12px;">
+        <label>Enable Liquid Waves</label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="enableWaves" checked>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="form-row" style="margin-bottom: 12px;">
+        <label>Enable Clear Viewport Hole</label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="showViewport" checked>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="form-row" style="margin-bottom: 12px;">
+        <label>Auto-Hide Viewport on Idle (Privacy Lock)</label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="autoHideIdle" checked>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="form-row" style="margin-bottom: 12px;">
+        <label>Enable Ice Mode (Polarized Side-block)</label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="iceMode">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="form-group" id="iceModeIntensityGroup">
+        <div class="form-row">
+          <label for="iceModeIntensity">Ice Mode Intensity</label>
+          <span class="value-label" id="iceModeIntensity-val">0.50</span>
+        </div>
+        <input type="range" id="iceModeIntensity" min="0.00" max="1.00" step="0.01" value="0.50">
+      </div>
+    </div>
+
+    <!-- Glass & Border Visuals -->
+    <div class="section">
+      <div class="section-title">Glass Frame</div>
+      <div class="form-row" style="margin-top: 6px;">
+        <label>Enable Glass Rim Border</label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="glassRim" checked>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- System & Control -->
+    <div class="section">
+      <div class="section-title">System Settings</div>
+      <div class="form-row" style="margin-bottom: 12px;">
+        <label>Start with Windows / macOS</label>
+        <label class="checkbox-container">
+          <input type="checkbox" id="startWithSystem">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+          <label for="hotkey">Toggle Hotkey</label>
+          <input type="text" id="hotkey" value="CommandOrControl+Shift+P">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="version-tag">Hido v1.0.0 — Platform: <span id="platform-tag">Desktop</span></div>
+
+  <script src="../../dist/renderer/settings.js"></script>
+</body>
+</html>
