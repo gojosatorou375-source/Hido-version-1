@@ -1,3 +1,5 @@
+[![gojosatorou375-source's GitHub stats](https://github-readme-stats.vercel.app/api?username=gojosatorou375-source)](https://github.com/anuraghazra/github-readme-stats)
+
 # Hido (LiquidPrivacy)
 
 > A software-defined privacy screen built with Electron, TypeScript, and HTML5 Canvas that protects sensitive information from shoulder surfing through a dynamic, physics-driven privacy overlay.
